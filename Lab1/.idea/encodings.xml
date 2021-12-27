@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/src/com/mmy/ErrorCode.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/src/com/mmy/InitDB.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/src/com/mmy/Main.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/src/com/mmy/Table.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/src/com/mmy/Tools.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/room.csv" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/student.csv" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/test1.csv" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
