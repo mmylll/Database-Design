@@ -20,6 +20,15 @@ mybatis会依据这个接口动态创建一个实现类去实现这个接口，
     <select id="getCourse_AllocationByCourseName" resultType="pojo.Course_Allocation">
         select * from  department.course_allocation where course_id = #{course_id}
     </select>
+    <select id="getCourse_Allocation" resultType="pojo.Course_Allocation">
+        select * from department.course_allocation where semester = #{semester} and employee_id = #{employee_id}
+    </select>
+    <select id="getHistoryGrade" resultType="pojo.Course_Allocation">
+        select * from department.course_allocation where semester &lt; #{semester} and employee_id = #{employee_id}
+    </select>
+    <select id="getAllCourseAllocationByEmployeeId" resultType="pojo.Course_Allocation">
+        select * from department.course_allocation where employee_id = #{employee_id}
+    </select>
 
     <insert id="add_course_allocation" parameterType="pojo.Course_Allocation" >
         insert into department.course_allocation (employee_id, employee_name, instructor_id, course_id,

@@ -1,4 +1,4 @@
-package run;
+package pojo;
 
 import org.apache.ibatis.session.SqlSession;
 import pojo.*;

@@ -8,5 +8,8 @@ public interface EmployeeDao {
     Employee getEmployeeByName(String employee_name);
     // 根据员工号查询员工
     Employee getEmployeeById(String employee_id);
-
+    // 员工自己修改自己的信息
+    Employee updateEmployee(Employee employee);
+    // 管理员根据用户id查看用户信息
+    Employee getEmployeeCourseAllocation(String employee_id);
 }

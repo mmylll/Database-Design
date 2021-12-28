@@ -20,4 +20,27 @@ mybatis会依据这个接口动态创建一个实现类去实现这个接口，
     <select id="getEmployeeById" resultType="pojo.Employee">
         select * from department.employee where employee_id = #{employee_id}
     </select>
+
+    <!-- 一对多 根据uid查询用户及其关联的订单信息：级联查询的第一种方法（嵌套查询） -->
+    <resultMap type="pojo.Employee" id="employee_course_allocation">
+        <id property="employee_id" column="employee_id" />
+        <result property="employee_name" column="employee_name" />
+        <result property="sex" column="sex" />
+        <result property="age" column="age" />
+        <result property="induction_date" column="induction_date" />
+        <result property="address" column="address" />
+        <result property="phone" column="phone" />
+        <result property="email" column="email" />
+        <result property="department_name" column="department_name" />
+        <!-- 一对多级联查询，ofType表示集合中的元素类型，将uid传递给selectOrdersByld -->
+        <collection property="course_allocationList" ofType="pojo.Course_Allocation"
+                    column="employee_id" select="dao.Course_AllocationDao.getAllCourseAllocationByEmployeeId" />
+    </resultMap>
+    <select id="getEmployeeCourseAllocation" parameterType="String" resultMap="employee_course_allocation">
+        select * from department.employee where employee_id = #{employee_id}
+    </select>
+
+    <update id="updateEmployee" parameterType="pojo.Employee">
+        update department.employee set employee_name = #{employee_name}, sex = #{sex}, age = #{age}, address = #{address}, phone = #{phone}, email = #{email} where employee_id = #{employee_id}
+    </update>
 </mapper>

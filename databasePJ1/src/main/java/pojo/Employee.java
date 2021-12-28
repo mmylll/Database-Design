@@ -1,5 +1,13 @@
 package pojo;
 
+import dao.Course_AllocationDao;
+import dao.EmployeeDao;
+import org.apache.ibatis.session.SqlSession;
+import utils.MybatisUtil;
+
+import java.util.Date;
+import java.util.List;
+
 public class Employee {
     private String employee_id;
     private String employee_name;
@@ -10,6 +18,7 @@ public class Employee {
     private String phone;
     private String email;
     private String department_name;
+    private List<Course_Allocation> course_allocationList;
 
     public Employee(){}
 
@@ -97,6 +106,41 @@ public class Employee {
 
     public void setDepartment_name(String department_name) {
         this.department_name = department_name;
+    }
+
+    public List<Course_Allocation> getCourse_allocationList() {
+        return course_allocationList;
+    }
+
+    public void setCourse_allocationList(List<Course_Allocation> course_allocationList) {
+        this.course_allocationList = course_allocationList;
+    }
+
+    // 更新员工信息
+    public Employee updateEmployee(Employee employee){
+        SqlSession session = MybatisUtil.getSqlSession();
+        EmployeeDao employeeMapper = session.getMapper(EmployeeDao.class);
+        Employee employee1 = employeeMapper.updateEmployee(employee);
+        session.close();
+        return employee1;
+    }
+
+    // 查看被分配到的课程以及教员信息
+    public List<Course_Allocation> getCourseAllocation(int semester,Employee employee){
+        SqlSession session = MybatisUtil.getSqlSession();
+        Course_AllocationDao courseAllocationMapper = session.getMapper(Course_AllocationDao.class);
+        List<Course_Allocation> course_allocations = courseAllocationMapper.getCourse_Allocation(semester,employee);
+        session.close();
+        return course_allocations;
+    }
+
+    // 查看自己的历史培训成绩信息
+    public List<Course_Allocation> getHistoryGrade(int semester,Employee employee){
+        SqlSession session = MybatisUtil.getSqlSession();
+        Course_AllocationDao courseAllocationMapper = session.getMapper(Course_AllocationDao.class);
+        List<Course_Allocation> course_allocations = courseAllocationMapper.getHistoryGrade(semester,employee);
+        session.close();
+        return course_allocations;
     }
 
 }

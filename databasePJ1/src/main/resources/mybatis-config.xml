@@ -20,6 +20,7 @@
         <mapper resource="mapper/course-mapper.xml"/>
         <mapper resource="mapper/employee-mapper.xml"/>
         <mapper resource="mapper/course_allocation-mapper.xml"/>
+        <mapper resource="mapper/"
     </mappers>
 
 

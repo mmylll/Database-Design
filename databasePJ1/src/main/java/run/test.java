@@ -1,8 +1,6 @@
 package run;
-import org.apache.ibatis.session.SqlSession;
 import pojo.Employee;
-import run.Department_head;
-import utils.MybatisUtil;
+import pojo.Department_head;
 
 public class test {
     public static void main(String[] arg){
